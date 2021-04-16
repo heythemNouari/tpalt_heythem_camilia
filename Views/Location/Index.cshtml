@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewData["Title"] = "Location";
+}
+
+
+@{
+    var choice = ViewBag.Message;
+}
+@if (choice == "recherche")
+{
+    <h2> Recherche d'un bien!</h2>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form asp-action="getBien" asp-controller="Location" method="post">
+                            <div class="form-group">
+                                <label for="PostalCode">Code Postale </label>
+                                <input type="text" class="form-control" name="PostalCode">
+                            </div>
+                            <div class="form-group">
+                                <label for="Type">Type du bien</label>
+                                <select name="Type">
+                                    <option value="">--Veuillez choisir un type --</option>
+                                    <option value="T1">T1</option>
+                                    <option value="T2">T2</option>
+                                    <option value="T3">T3</option>
+                                    <option value="T4">T4</option>
+                                    <option value="Maison">Maison</option>
+                                    <option value="Villa">Villa</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" id="sendlogin" class="btn btn-primary">Chercher le bien</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (choice == "ajout")
+{
+    <H2> Ajout d'un bien </H2>
+    
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form asp-action="addBien" asp-controller="Location" method="post">
+                            <div class="form-group">
+                                <label for="Adresse">Adresse </label>
+                                <input type="text" class="form-control" name="Adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="PostalCode">Code Postale </label>
+                                <input type="text" class="form-control" name="PostalCode">
+                            </div>
+                            <div class="form-group">
+                                <label for="Type">Type du bien</label>
+                                <select name="Type">
+                                    <option value="">--Veuillez choisir un type --</option>
+                                    <option value="T1">T1</option>
+                                    <option value="T2">T2</option>
+                                    <option value="T3">T3</option>
+                                    <option value="T4">T4</option>
+                                    <option value="Maison">Maison</option>
+                                    <option value="Villa">Villa</option>
+                                </select>
+                            </div>
+                            <label for="photo">Photo *</label>
+                            
+                            <input  type="file" name="Upload" />
+
+
+
+
+                            <button type="submit" id="sendlogin" class="btn btn-primary">Ajouter le bien</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+else
+{
+    if(choice == "added")
+    {
+        <p> Le bien a été ajouté avec succes !</p>
+    }
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary btn-lg btn-block"><a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="Ajout">Metrre un bien en location</a></button>
+                        <button type="button" class="btn btn-secondary btn-lg btn-block"><a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="Recherche">Chercher un bien</a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

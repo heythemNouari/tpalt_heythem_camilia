@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@{
+    var rep = ViewBag.Message;
+    int i = 1;
+}
+
+
+
+@foreach (Bien b in rep)
+{
+     
+   <p>Bien @i : </p>
+   <li>
+       <ul> Adresse :  @b.Adresse</ul>
+       <ul> Type du bien : @b.Type.</ul>
+       <ul> numero de tel du propriétaire : @b.OwnerTel. </ul>
+       
+   </li>
+    i++;
+}

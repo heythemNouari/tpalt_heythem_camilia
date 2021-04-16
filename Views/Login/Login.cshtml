@@ -1,0 +1,16 @@
+﻿
+@using heythem_Demo.Models
+
+@{
+    ViewBag.Title = "Login";
+}
+@{
+    var Login = ViewBag.Message;
+}
+@if (Login != null)
+{
+    <p>Hello You are succesfully connected !</p>
+}
+else {
+    <p> Error ! Wrong Username Or Password </p>
+    }
